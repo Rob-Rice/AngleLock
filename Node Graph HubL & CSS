@@ -1,0 +1,184 @@
+<div class="node-wrapper">
+  <div class="node-container">
+    {% if module.image_field.src %}
+    {% set sizeAttrs = 'width="{{ module.image_field.width }}" height="{{ module.image_field.height }}"' %}
+    {% if module.image_field.size_type == 'auto' %}
+    {% set sizeAttrs = 'width="{{ module.image_field.width }}" height="{{ module.image_field.height }}" style="max-width: 100%; height: auto;"' %}
+    {% elif module.image_field.size_type == 'auto_custom_max' %}
+    {% set sizeAttrs = 'width="{{ module.image_field.max_width }}" height="{{ module.image_field.max_height }}" style="max-width: 100%; height: auto;"' %}
+    {% endif %}
+    {% set loadingAttr = module.image_field.loading != 'disabled' ? 'loading="{{ module.image_field.loading }}"' : '' %}
+    <img src="{{ module.image_field.src }}" alt="{{ module.image_field.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="center-node__image sr-invisible fadeInBottom">
+    {% endif %}
+    <div class="main">
+      <div class="circle first sr-invisible fadeInBottom">
+        <div class="node-front">
+          {% if module.first_image.src %}
+          {% set sizeAttrs = 'width="{{ module.first_image.width }}" height="{{ module.first_image.height }}"' %}
+          {% if module.first_image.size_type == 'auto' %}
+          {% set sizeAttrs = 'width="{{ module.first_image.width }}" height="{{ module.first_image.height }}" style="max-width: 100%; height: auto;"' %}
+          {% elif module.first_image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ module.first_image.max_width }}" height="{{ module.first_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          {% set loadingAttr = module.first_image.loading != 'disabled' ? 'loading="{{ module.first_image.loading }}"' : '' %}
+          <img src="{{ module.first_image.src }}" alt="{{ module.first_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}  >
+          {% endif %}
+        </div>
+        <div class="node-back" style="position: absolute;width: 200px;height: 200px;background-color: #003478;transform: rotate(360deg);">
+          {% inline_rich_text field="First_richtext_field" value="{{ module.First_richtext_field }}" %}
+        </div>
+      </div>
+      <div class="circle second sr-invisible fadeInBottom">
+        <div class="node-front">
+          {% if module.second_image.src %}
+          {% set sizeAttrs = 'width="{{ module.second_image.width }}" height="{{ module.second_image.height }}"' %}
+          {% if module.second_image.size_type == 'auto' %}
+          {% set sizeAttrs = 'width="{{ module.second_image.width }}" height="{{ module.second_image.height }}" style="max-width: 100%; height: auto;"' %}
+          {% elif module.second_image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ module.second_image.max_width }}" height="{{ module.second_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          {% set loadingAttr = module.second_image.loading != 'disabled' ? 'loading="{{ module.second_image.loading }}"' : '' %}
+          <img src="{{ module.second_image.src }}" alt="{{ module.second_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }} style="transform: rotate(287deg);">
+          {% endif %}
+        </div>
+        <div class="node-back" style="position: absolute;width: 200px;height: 200px;background-color: #003478;transform: rotate(288deg);">
+          {% inline_rich_text field="second_text" value="{{ module.second_text }}" %}
+        </div>
+      </div>
+      <div class="circle third sr-invisible fadeInBottom">
+        <div class="node-front">
+          {% if module.third_image.src %}
+          {% set sizeAttrs = 'width="{{ module.third_image.width }}" height="{{ module.third_image.height }}"' %}
+          {% if module.third_image.size_type == 'auto' %}
+          {% set sizeAttrs = 'width="{{ module.third_image.width }}" height="{{ module.third_image.height }}" style="max-width: 100%; height: auto;"' %}
+          {% elif module.third_image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ module.third_image.max_width }}" height="{{ module.third_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          {% set loadingAttr = module.third_image.loading != 'disabled' ? 'loading="{{ module.third_image.loading }}"' : '' %}
+          <img src="{{ module.third_image.src }}" alt="{{ module.third_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }} style="transform: rotate(216deg);" >
+          {% endif %}
+        </div>
+        <div class="node-back" style="position: absolute;width: 200px;height: 200px;background-color: #003478;transform: rotate(216deg);">
+          {% inline_rich_text field="third_text" value="{{ module.third_text }}" %}
+        </div>
+      </div>
+      <div class="circle fourth sr-invisible fadeInBottom">
+        <div class="node-front">
+          {% if module.fourth_image.src %}
+          {% set sizeAttrs = 'width="{{ module.fourth_image.width }}" height="{{ module.fourth_image.height }}"' %}
+          {% if module.fourth_image.size_type == 'auto' %}
+          {% set sizeAttrs = 'width="{{ module.fourth_image.width }}" height="{{ module.fourth_image.height }}" style="max-width: 100%; height: auto;"' %}
+          {% elif module.fourth_image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ module.fourth_image.max_width }}" height="{{ module.fourth_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          {% set loadingAttr = module.fourth_image.loading != 'disabled' ? 'loading="{{ module.fourth_image.loading }}"' : '' %}
+          <img src="{{ module.fourth_image.src }}" alt="{{ module.fourth_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }} style="transform: rotate(144deg);">
+          {% endif %}
+        </div>
+        <div class="node-back" style="position: absolute;width: 200px;height: 200px;background-color: #003478;transform: rotate(144deg);">
+          {% inline_rich_text field="fourth_text" value="{{ module.fourth_text }}" %}
+        </div>
+      </div>
+      <div class="circle fifth sr-invisible fadeInBottom">
+        <div class="node-front">
+          {% if module.fifth_image.src %}
+          {% set sizeAttrs = 'width="{{ module.fifth_image.width }}" height="{{ module.fifth_image.height }}"' %}
+          {% if module.fifth_image.size_type == 'auto' %}
+          {% set sizeAttrs = 'width="{{ module.fifth_image.width }}" height="{{ module.fifth_image.height }}" style="max-width: 100%; height: auto;"' %}
+          {% elif module.fifth_image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="{{ module.fifth_image.max_width }}" height="{{ module.fifth_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+          {% endif %}
+          {% set loadingAttr = module.fifth_image.loading != 'disabled' ? 'loading="{{ module.fifth_image.loading }}"' : '' %}
+          <img src="{{ module.fifth_image.src }}" alt="{{ module.fifth_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }} style="transform: rotate(72deg);">
+          {% endif %}
+        </div>
+        <div class="node-back" style="position: absolute;width: 200px;height: 200px;background-color: #003478;transform: rotate(72deg);">
+          {% inline_rich_text field="fifth_text" value="{{ module.fifth_text }}" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .node-wrapper {
+    height: 900px;
+    background-color: #fafafa !important;
+  }
+
+  .node-container {
+    height: 100%;
+    width: 90%;
+    background-color: transparent;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .center-node__image {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+  }
+
+  .main {
+    position: relative;
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+  }
+
+  .node-front img {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%) !important;
+  }
+
+  .node-back {
+    opacity: 0;
+    border-radius: 5px;
+    padding: 5%;
+    transition: all .25s ease-out;
+    color: #fff;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 49%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+  }
+
+  .node-back:hover {
+    opacity: 1;
+  }
+
+  .circle {
+    display: flex;
+    position: absolute;
+    left: calc(42% - 45px);
+    top: calc(42% - 45px);
+    border-radius: 50%;
+  }
+
+  .node-front img {
+    height: 200px !important;
+    width: 200px !important;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .circle:nth-child(1) {
+    transform: translateX(250px);
+  }
+
+  .circle:nth-child(2) {
+    transform: rotate(72deg) translateX(250px);
+  }
+
+  .circle:nth-child(3) {
+    transform: rotate(144deg) translateX(250px);
+  }
+
+  .circle:nth-child(4) {
+    transform: rotate(216deg) translateX(250px);
+  }
+
+  .circle:nth-child(5) {
+    transform: rotate(288deg) translateX(250px);
+  }
+
+</style>
