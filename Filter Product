@@ -1,0 +1,420 @@
+<div class="opt-choice">
+  <h2 style="">Choose Your Type:</h2>      
+</div>
+<div class="tabContainer">
+  <div class="buttonContainer">
+    <div class="opt-btn">
+      <button onclick="showPanel(0,'transparent')" class="underLine">
+        {% if module.image_angle_rivet_system.src %}
+        {% set sizeAttrs = 'width="{{ module.image_angle_rivet_system.width }}" height="{{ module.image_angle_rivet_system.height }}"' %}
+        {% if module.image_angle_rivet_system.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_angle_rivet_system.width }}" height="{{ module.image_angle_rivet_system.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_angle_rivet_system.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_angle_rivet_system.max_width }}" height="{{ module.image_angle_rivet_system.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_angle_rivet_system.loading != 'disabled' ? 'loading="{{ module.image_angle_rivet_system.loading }}"' : '' %}
+        <img src="{{ module.image_angle_rivet_system.src }}" alt="{{ module.image_angle_rivet_system.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Angle Rivet System
+        </p>
+      </button>      
+    </div>
+    <div class="opt-btn">
+      <button onclick="showPanel(1,'transparent')" style="">
+        {% if module.image_components.src %}
+        {% set sizeAttrs = 'width="{{ module.image_components.width }}" height="{{ module.image_components.height }}"' %}
+        {% if module.image_components.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_components.width }}" height="{{ module.image_components.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_components.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_components.max_width }}" height="{{ module.image_components.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_components.loading != 'disabled' ? 'loading="{{ module.image_components.loading }}"' : '' %}
+        <img src="{{ module.image_components.src }}" alt="{{ module.image_components.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Components
+        </p>
+      </button>
+    </div>
+    <div class="opt-btn">
+      <button onclick="showPanel(2,'transparent')" style="">
+        {% if module.image_workbenches.src %}
+        {% set sizeAttrs = 'width="{{ module.image_workbenches.width }}" height="{{ module.image_workbenches.height }}"' %}
+        {% if module.image_workbenches.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_workbenches.width }}" height="{{ module.image_workbenches.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_workbenches.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_workbenches.max_width }}" height="{{ module.image_workbenches.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_workbenches.loading != 'disabled' ? 'loading="{{ module.image_workbenches.loading }}"' : '' %}
+        <img src="{{ module.image_workbenches.src }}" alt="{{ module.image_workbenches.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Workbenches
+        </p>  
+      </button>
+    </div>    
+    <div class="opt-btn">
+      <button onclick="showPanel(3,'transparent')" style="">
+        {% if module.image_enclosures.src %}
+        {% set sizeAttrs = 'width="{{ module.image_enclosures.width }}" height="{{ module.image_enclosures.height }}"' %}
+        {% if module.image_enclosures.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_enclosures.width }}" height="{{ module.image_enclosures.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_enclosures.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_enclosures.max_width }}" height="{{ module.image_enclosures.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_enclosures.loading != 'disabled' ? 'loading="{{ module.image_enclosures.loading }}"' : '' %}
+        <img src="{{ module.image_enclosures.src }}" alt="{{ module.image_enclosures.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Enclosures
+        </p>
+      </button>
+    </div>
+    <div class="opt-btn">
+      <button onclick="showPanel(4,'transparent')" style="">
+        {% if module.image_carts.src %}
+        {% set sizeAttrs = 'width="{{ module.image_carts.width }}" height="{{ module.image_carts.height }}"' %}
+        {% if module.image_carts.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_carts.width }}" height="{{ module.image_carts.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_carts.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_carts.max_width }}" height="{{ module.image_carts.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_carts.loading != 'disabled' ? 'loading="{{ module.image_carts.loading }}"' : '' %}
+        <img src="{{ module.image_carts.src }}" alt="{{ module.image_carts.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Carts
+        </p>
+      </button>
+    </div>
+    <div class="opt-btn">
+      <button onclick="showPanel(5,'transparent')" style="">
+        {% if module.image_built_products.src %}
+        {% set sizeAttrs = 'width="{{ module.image_built_products.width }}" height="{{ module.image_built_products.height }}"' %}
+        {% if module.image_built_products.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_built_products.width }}" height="{{ module.image_built_products.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_built_products.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_built_products.max_width }}" height="{{ module.image_built_products.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_built_products.loading != 'disabled' ? 'loading="{{ module.image_built_products.loading }}"' : '' %}
+        <img src="{{ module.image_built_products.src }}" alt="{{ module.image_built_products.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Built Products
+        </p>
+      </button>
+    </div>
+    <div class="opt-btn">
+      <button onclick="showPanel(6,'transparent')" style="">
+        {% if module.image_doors_floors.src %}
+        {% set sizeAttrs = 'width="{{ module.image_doors_floors.width }}" height="{{ module.image_doors_floors.height }}"' %}
+        {% if module.image_doors_floors.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_doors_floors.width }}" height="{{ module.image_doors_floors.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_doors_floors.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_doors_floors.max_width }}" height="{{ module.image_doors_floors.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_doors_floors.loading != 'disabled' ? 'loading="{{ module.image_doors_floors.loading }}"' : '' %}
+        <img src="{{ module.image_doors_floors.src }}" alt="{{ module.image_doors_floors.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Doors & Floors
+        </p>
+      </button>
+    </div>
+    <div class="opt-btn">
+      <button onclick="showPanel(7,'transparent')" style="">
+        {% if module.image_profiles.src %}
+        {% set sizeAttrs = 'width="{{ module.image_profiles.width }}" height="{{ module.image_profiles.height }}"' %}
+        {% if module.image_profiles.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_profiles.width }}" height="{{ module.image_profiles.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_profiles.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_profiles.max_width }}" height="{{ module.image_profiles.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_profiles.loading != 'disabled' ? 'loading="{{ module.image_profiles.loading }}"' : '' %}
+        <img src="{{ module.image_profiles.src }}" alt="{{ module.image_profiles.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Profiles
+        </p>
+      </button>
+    </div>
+    <div class="opt-btn">
+      <button onclick="showPanel(8,'transparent')" style="">
+        {% if module.image_hardware.src %}
+        {% set sizeAttrs = 'width="{{ module.image_hardware.width }}" height="{{ module.image_hardware.height }}"' %}
+        {% if module.image_hardware.size_type == 'auto' %}
+        {% set sizeAttrs = 'width="{{ module.image_hardware.width }}" height="{{ module.image_hardware.height }}" style="max-width: 100%; height: auto;"' %}
+        {% elif module.image_hardware.size_type == 'auto_custom_max' %}
+        {% set sizeAttrs = 'width="{{ module.image_hardware.max_width }}" height="{{ module.image_hardware.max_height }}" style="max-width: 100%; height: auto;"' %}
+        {% endif %}
+        {% set loadingAttr = module.image_hardware.loading != 'disabled' ? 'loading="{{ module.image_hardware.loading }}"' : '' %}
+        <img src="{{ module.image_hardware.src }}" alt="{{ module.image_hardware.alt }}" {{ loadingAttr }} {{ sizeAttrs }} class="button__img">
+        {% endif %}
+        <p>
+          Hardware
+        </p>
+      </button>
+    </div>
+  </div>
+  <div class="something">
+    
+  {% if dynamic_page_hubdb_row %}        
+  <div class="products-container">
+    <div id="product">
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}" />
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=1" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article>
+      <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 100px; width: 100px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="tabPanel" style="display: none;"> 
+    {% if dynamic_page_hubdb_row %}        
+    <div id="product">
+      <h1 class="p__name">
+        {{dynamic_page_hubdb_row.name}}
+      </h1>
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}"  class="p__img" />
+      <p class="desc">
+        {{dynamic_page_hubdb_row.description}}
+      </p>
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=2" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article class="products-container">
+      <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="tabPanel" style="display: none;"> 
+    {% if dynamic_page_hubdb_row %}        
+    <div id="product">
+      <h1 class="p__name">
+        {{dynamic_page_hubdb_row.name}}
+      </h1>
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}"  class="p__img" />
+      <p class="desc">
+        {{dynamic_page_hubdb_row.description}}
+      </p>
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=3" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article class="products-container">
+      <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="tabPanel" style="display: none;"> 
+    {% if dynamic_page_hubdb_row %}        
+    <div id="product">
+      <h1 class="p__name">
+        {{dynamic_page_hubdb_row.name}}
+      </h1>
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}"  class="p__img" />
+      <p class="desc">
+        {{dynamic_page_hubdb_row.description}}
+      </p>
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=4" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article class="products-container">
+      <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="tabPanel" style="display: none;"> 
+    {% if dynamic_page_hubdb_row %}        
+    <div id="product">
+      <h1 class="p__name">
+        {{dynamic_page_hubdb_row.name}}
+      </h1>
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}"  class="p__img" />
+      <p class="desc">
+        {{dynamic_page_hubdb_row.description}}
+      </p>
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=5" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article class="products-container">
+      <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="tabPanel" style="display: none;"> 
+    {% if dynamic_page_hubdb_row %}        
+    <div id="product">
+      <h1 class="p__name">
+        {{dynamic_page_hubdb_row.name}}
+      </h1>
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}"  class="p__img" />
+      <p class="desc">
+        {{dynamic_page_hubdb_row.description}}
+      </p>
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=6" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article class="products-container">
+      <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="tabPanel" style="display: none;"> 
+    {% if dynamic_page_hubdb_row %}        
+    <div id="product">
+      <h1 class="p__name">
+        {{dynamic_page_hubdb_row.name}}
+      </h1>
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}"  class="p__img" />
+      <p class="desc">
+        {{dynamic_page_hubdb_row.description}}
+      </p>
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=7" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article class="products-container">
+      <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="tabPanel" style="display: none;"> 
+    {% if dynamic_page_hubdb_row %}        
+    <div id="product">
+      <h1 class="p__name">
+        {{dynamic_page_hubdb_row.name}}
+      </h1>
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}"  class="p__img" />
+      <p class="desc">
+        {{dynamic_page_hubdb_row.description}}
+      </p>
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=8" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article class="products-container">
+      <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="tabPanel" style="display: none;"> 
+    {% if dynamic_page_hubdb_row %}        
+    <div id="product">
+      <h1 class="p__name">
+        {{dynamic_page_hubdb_row.name}}
+      </h1>
+      <img src="{{dynamic_page_hubdb_row.image_1.url}}"  class="p__img" />
+      <p class="desc">
+        {{dynamic_page_hubdb_row.description}}
+      </p>
+    </div>
+    {% elif dynamic_page_hubdb_table_id %}
+    {% set queryparam = "" %}
+    {% set queryparam = queryparam ~ "type=9" %}
+    {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+    <article class="products-container">
+      <a href="{{ request.path }}/{{ row.hs_path }}" target="_blank">
+        <h2 class="p__title">
+          {{row.name}} 
+        </h2>
+        <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+      </a>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+  </div>
+</div>
+
+
+<script>
+  const tabButtons = document.querySelectorAll(".tabContainer .buttonContainer button");
+  const tabPanels = document.querySelectorAll(".tabContainer  .tabPanel");
+
+
+  function showPanel(panelIndex) {
+    tabButtons.forEach(function(node){
+      node.style.color = "";
+      node.style.textDecoration = "";
+    });
+    tabPanels.forEach(function(node){
+      node.style.display="none";
+    });
+    tabPanels[panelIndex].style.display = "grid";
+  }
+
+  showPanel();
+
+</script>
