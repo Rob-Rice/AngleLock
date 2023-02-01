@@ -1,0 +1,371 @@
+<!--
+templateType: page
+isAvailableForNewContent: true
+label: Components Collection 
+screenshotPath: ../../images/template-previews/career-01.jpeg
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<main class="body-container-wrapper">
+
+  {% dnd_area "dnd_area" class='body-container', label='Main section' %}
+
+  {% dnd_section 
+		  padding={
+				'top': 0,
+				'bottom': 0,
+				'left': 0,
+				'right': 0
+			},
+			full_width=true
+		%}
+  {% dnd_module 'sp_banner' 
+				path='../../modules/Hero Banner',
+				label="Hero Banner",
+				width=12,
+				variant='var_02'
+			%}
+  {% module_attribute 'settings' is_json=True %}
+  {
+  'background_setting':{
+  "parallax": false,
+  "overlay": true,
+  "overlay_color": {
+  "color":"#000000",
+  "opacity": 60
+  }
+  }
+  }
+  {% end_module_attribute %}
+  {% module_attribute 'content_02' is_json=True %}
+  {
+  "heading": "Profile"
+  }
+  {% end_module_attribute %}
+  {% end_dnd_module %}
+  {% end_dnd_section %}
+
+
+  {% dnd_section vertical_alignment='TOP' %}
+  {% dnd_module 'content_01' path='../../modules/Content', width=6 %}{% end_dnd_module %}
+  {% dnd_module 'content_01' path='../../modules/Content', width=6, offset=6 %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section vertical_alignment='TOP', max_width='1000', background_color={
+				r: 250,
+				b: 250,
+				g: 250,
+				a: 1
+			} %}
+  {% dnd_module 'career_01' path='../../modules/Career', width=12 %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section vertical_alignment='MIDDLE',
+	background_image={
+        'backgroundPosition': 'MIDDLE_CENTER',
+        'backgroundSize': 'cover',
+        'imageUrl': 'https://cdn2.hubspot.net/hubfs/2333817/GiantFocal_Marketplace/Atomic/images/atomic-img-02.jpg'
+      }
+			%}
+
+  {% dnd_column %}
+
+  {% dnd_row %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4 %}{% end_dnd_module %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4, offset=4 %}{% end_dnd_module %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4, offset=8 %}{% end_dnd_module %}
+  {% end_dnd_row %}
+
+  {% dnd_row %}
+  {% dnd_module 'overlay_01' path='../../modules/Section Settings', width=12, overlay='true' %}{% end_dnd_module %}
+  {% end_dnd_row %} 
+
+  {% end_dnd_column %}
+
+  {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+  <div class="product-listing-container">
+    <div class="products-listing-wrapper">
+      {% if dynamic_page_hubdb_row %}        
+      <div id="product" class="product-card">
+        <div class="product-t-l__wrapper">
+          <div class="product-title">
+            <h1>
+              {{dynamic_page_hubdb_row.name}}
+            </h1>  
+          </div>
+          <div class="contact-link">
+            <a href="/pages/contact-us" rel="nofollow" class="c-a__cta">
+              Contact Us For A Quote
+            </a>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="p-img">
+            <a href="{{dynamic_page_hubdb_row.image_1.url}}" target="_blank">
+              <img src="{{dynamic_page_hubdb_row.image_1.url}}" class="p-main__img" />
+            </a>
+            <div class="thumbnail-image">
+              {% if dynamic_page_hubdb_row.image_2.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_2.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_2.url }}" />   
+              </a>
+              {% else %}
+              <div class="test"  style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_3.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_3.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_3.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_4.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_4.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_4.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_5.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_5.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_5.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_6.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_6.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_6.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_7.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_7.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_7.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_8.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_8.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_8.url }}" />
+              </a>
+              {% else %}
+              <div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="p-three-d-link">
+            <div class="three-d-render">
+              {{ dynamic_page_hubdb_row.three_d }}
+            </div>
+            <div class="contact-link">
+<!--               <a href="/pages/contact-us" rel="nofollow" class="c-a__cta">
+                Contact Us For A Quote
+              </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      {% elif dynamic_page_hubdb_table_id %}
+      {% set queryparam = "" %}
+      {% set queryparam = queryparam ~ "type=2" %}
+      <div>
+        <h1 class="collection-header">
+          Components
+        </h1>  
+      </div>
+      <div class="product-listing-cards">
+        {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %} 
+        <article class="products-container">
+          <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+            <h2 class="p__title">
+              {{row.name}} 
+            </h2>
+            <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+
+      {% endif %}
+    </div>
+  </div>
+
+</main>
+<style>
+  .product-listing-container {
+    width: 80vw;
+    margin: 0 auto;
+    padding-top: 5%;
+  }
+
+  .product-listing-container h1 , .product-t-l__wrapper{
+    padding-bottom: 1%;
+  } 
+
+  .product-listing-cards {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  article {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5%;
+    transition: all .25s ease-out;
+    width: 340px;
+    margin: 0 auto;
+  }
+
+  article:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #fff;
+  }
+
+  p.desc iframe {
+    width: 350px !important;
+  }
+
+  .p__title {
+    font-size: 1.5rem;
+  }
+
+  article a {
+    color: #333;
+  }
+
+  article a:hover {
+    color: #333;
+  }
+
+  .product-card img {
+    width: 400px;
+    max-height: 400px;
+    object-fit: contain;
+    transition: all .25s ease-out;
+  }
+
+  img.p__img {
+    object-fit: contain;
+  }
+
+  .product-content {
+    display: flex;
+  }
+  
+  .product-title, .contact-link {
+    flex-basis: 50%;
+  }
+
+  .product-t-l__wrapper{
+/*     display: flex; */
+  } 
+
+  .p-img, .p-three-d-link {
+    display: flex;
+    flex-basis: 50%;
+    align-self: center;
+    justify-content: center;
+  }
+
+  .p-three-d-link {
+    flex-direction: column;
+  }
+
+  .contact-link {
+    margin: 0 auto;
+  }
+
+  .p-img, .p-three-d-link {
+    display: flex;
+    align-self: start;
+  }
+  
+  a.c-a__cta {
+    color: #fff;
+    background-color: #003478;
+    padding: 1% 5%;
+    width: auto;
+    white-space: nowrap;
+    display: inline-block;
+    border-radius: 5px;
+  }
+
+  a.c-a__cta:hover {
+    transform: scale(1.02)
+  }
+
+  .p-img {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .p-img img:hover {
+    transform: scale(1.02);
+  }
+  
+  .p-main__img {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 5px;
+    margin-bottom: 5%;
+  }
+
+  .p-img a {
+    width: 400px;
+  }
+
+  .thumbnail-image {
+    display: grid;
+    width: 400px;
+    grid-template-columns: auto auto auto;
+  }
+
+  .thumbnail-image a {
+    border: 2px solid #fff;
+    width: 133px;
+    height: 133px;
+    display: flex;
+    background: #fafafa;
+    border-radius: 5px;
+  }
+
+  .thumbnail-image img {
+    object-fit: contain;
+    transition: all .25s ease-out;
+  }
+
+  .thumbnail-image img:hover {
+    transform: scale(1.02);
+  }
+
+  .hs-embed-wrapper {
+    text-align: center;
+  }
+
+  .download-btn {
+    color: #333;
+    font-size: 3rem;
+  }
+
+  .download-btn:hover {
+    transition: all .25s ease-out;
+    text-decoration: underline;
+    font-size: 3.03rem;
+  }
+
+</style>
+{% endblock body %}
