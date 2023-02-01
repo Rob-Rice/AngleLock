@@ -1,0 +1,156 @@
+<footer class="footer atmc-parallax {% if module.settings.footer_background_option == 'image' %}{% if module.settings.enable_background_overlay %}footer-overlay{% endif %}{% endif %} {% if module.settings.footer_text_white %}text-white{% endif %}" 
+				style="
+					{% if module.settings.footer_background_option == 'color' %}
+            {% if module.settings.footer_background_color %}background-color:{{ module.settings.site_footer_background_color.color }};{% endif %}
+					{% else %}
+				    {% if module.settings.footer_background_image.src %}background-image:url('{{ module.settings.footer_background_image.src }}');{% endif %}
+					{% endif %}
+	      ">
+    
+	{% if widget_data.footer.value != 'Landing' %}
+	    {% if module.enable_site_footer %}
+			<div class="atmc-site-footer">
+				<div class="atmc-container">
+					<div class="row-fluid">
+					{% for item in module.site_footer_content %}
+						<div class="span{{ item.column_width }} mb:mb-8">
+
+							{% for item2 in item.content_repeater %}
+								<div class="{% if loop.index > 1 %}mt-8{% endif %}">
+									{% if item2.heading %}
+										<h4 class="atmc-site-footer_heading mb-4">{{ item2.heading }}</h4>
+									{% endif %}
+									{% if item2.content_option == 'content' %}
+										{# ==== Content ==== #}
+										{{ item2.content }}
+										{# ==== /Content ==== #}
+									{% elif item2.content_option == 'menu' %}
+										{# ==== Menu ==== #}
+										<div class="atmc-sitefooter_menu">
+											{% simple_menu menu_tree="{{ item2.menu }}" %}
+										</div>
+										{# ==== /Menu ==== #}
+									{% elif item2.content_option == 'form' %}
+										{# ==== Form ==== #}
+										<div class="{% if module.settings.footer_text_white %}atmc-form-white{% endif %}">
+											{% form
+												form_to_use="{{ item2.form.form_id }}"
+												response_response_type="{{ item2.form.response_type }}"
+												response_message="{{ item2.form.message }}"
+												response_redirect_id="{{ item2.form.redirect_id }}"
+												response_redirect_url="{{item2.form.redirect_url}}"
+												gotowebinar_webinar_key="{{ item2.form.gotowebinar_webinar_key }}"
+											%}
+										</div>
+										{# ==== /Form ==== #}
+									{% elif item2.content_option == 'social_links' %}
+										{# ==== Social Links ==== #}
+										<div class="inline-flex items-center flex-wrap ds:flex-row atmc-social-links-01">
+											{% if item2.social_links_background_color == 'none' %}
+												{% set socialLinksClass = 'atmc-social-01 fill-' + item2.social_links_color %}
+											{% else %}
+												{% set socialLinksClass = 'atmc-social-03 ' + 'bg-' + item2.social_links_background_color + ' fill-' + item2.social_links_color %}
+											{% endif %}
+											{% for item3 in item2.social_link %}
+
+												{% if 'facebook' in item3.href %}
+													<a href="{{ item3.href }}" class="atmc-social {{ socialLinksClass }} atmc-hover-translateY" target="_blank" rel="nofollow">
+														{% icon name="facebook-f" style="REGULAR" unicode="f39e", no_wrapper=True %}
+													</a>
+												{% elif 'linkedin' in item3.href %}
+													<a href="{{ item3.href }}" class="atmc-social {{ socialLinksClass }} atmc-hover-translateY" target="_blank" rel="nofollow">
+														{% icon name="linkedin" style="REGULAR" unicode="f0e1", no_wrapper=True %}
+													</a>
+												{% elif 'twitter' in item3.href %}
+													<a href="{{ item3.href }}" class="atmc-social {{ socialLinksClass }} atmc-hover-translateY" target="_blank" rel="nofollow">
+														{% icon name="twitter" style="REGULAR" unicode="f099", no_wrapper=True %}
+													</a>
+												{% elif 'instagram' in item3.href %}
+													<a href="{{ item3.href }}" class="atmc-social {{ socialLinksClass }} atmc-hover-translateY" target="_blank" rel="nofollow">
+														{% icon name="instagram" style="REGULAR" unicode="f16d", no_wrapper=True %}
+													</a>
+												{% elif 'youtube' in item3.href %}
+													<a href="{{ item3.href }}" class="atmc-social {{ socialLinksClass }} atmc-hover-translateY" target="_blank" rel="nofollow">
+														{% icon name="youtube" style="REGULAR" unicode="f167", no_wrapper=True %}
+													</a>
+												{% elif 'pinterest' in item3.href %}
+													<a href="{{ item3.href }}" class="atmc-social {{ socialLinksClass }} atmc-hover-translateY" target="_blank" rel="nofollow">
+														{% icon name="pinterest" style="REGULAR" unicode="f0d2", no_wrapper=True %}
+													</a>
+												{% elif '@' in item3.href %}
+													<a href="mailto:{{ item3.href }}" class="atmc-social {{ socialLinksClass }} atmc-hover-translateY" target="_blank" rel="nofollow">
+														{% icon name="envelope" style="REGULAR" unicode="f0e0", no_wrapper=True %}
+													</a>
+												{% endif %}
+											{% endfor %}
+										</div>
+										{# ==== /Social Links ==== #}
+										{% elif item2.content_option == 'posts_01' %}
+										{# ==== Recent Posts 01 ==== #}
+										<div class="-m-2">
+											{% set rec_posts = blog_recent_posts(item2.blog, item2.number_of_posts) %}
+											{% for rec_post in rec_posts %}
+											<a href="{{ rec_post.absolute_url }}" class="flex items-center mb:justify-center p-2 {% if module.settings.footer_text_white %}text-white{% endif %}">
+												<div class="atmc-sitefooter_post-01-image mr-4 mb:w-1/5 tb:w-20 rounded" style="background-image:url('{{ rec_post.featured_image }}');"></div>
+												<p class="mb:w-2/5 w-full text-left">{{ rec_post.name }}</p>
+											</a>
+											{% endfor %}
+										</div>
+										{# ==== /Recent Posts 01 ==== #}
+										{% elif item2.content_option == 'posts_02' %}
+										{# ==== Recent Posts 02 ==== #}
+										<div class="-m-2">
+											{% set rec_posts = blog_recent_posts(item2.blog, item2.number_of_posts) %}
+											{% for rec_post in rec_posts %}
+											<a href="{{ rec_post.absolute_url }}" class="flex items-center mb:justify-center p-2 {% if module.settings.footer_text_white %}text-white{% endif %}">
+												<div class="atmc-sitefooter_post-02-image mr-4 mb:w-1/4 tb:w-24 rounded" style="background-image:url('{{ rec_post.featured_image }}');"></div>
+												<p class="mb:w-2/5 w-full text-left">{{ rec_post.name }}</p>
+											</a>
+											{% endfor %}
+										</div>
+										{# ==== /Recent Posts 02 ==== #}
+										{% elif item2.content_option == 'logos_01' %}
+										{# ==== Logos 01 ==== #}
+										<div class="atmc-sitefooter_logos-01-wrapper flex flex-wrap items-center mb:justify-center -m-2">
+											{% for item3 in item2.image %}
+												<div class="atmc-sitefooter_logos-01 mb:w-1/4 tb:w-1/4 ds:w-1/{{ item2.logos_items_per_row }} p-2">
+													<img src="{{ item3.src }}" alt="{{ item3.alt }}" height="auto" width="100%">
+												</div>
+											{% endfor %}
+										</div> 
+										{# ==== /Logos 01 ==== #}
+									{% endif %}
+								</div>
+							{% endfor %}
+
+						</div>
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	{% endif %}
+		
+		<div class="atmc-footer"{% if module.settings.footer_background_option == 'color' %} style="background-color:{{ module.settings.footer_background_color.color }};"{% endif %}>
+      <div class="atmc-container">
+        <div class="row-fluid">
+          <div class="span7">
+						<div class="footer__copyright">
+							{{ module.copyright_text }}
+						</div>
+          </div>
+					{% if module.footer_menu %}
+						<div class="span5">
+							<div class="atmc-footer_menu">
+								{% simple_menu menu_tree="{{ module.footer_menu }}" %}
+							</div>
+						</div>
+					{% endif %}
+        </div>
+      </div>
+    </div>
+
+		{% if theme.components_group.scroll_to_top %}
+			<a href="#" class="atmc-scroll-top">{% icon name="chevron-up" style="SOLID" unicode="f077", no_wrapper=true %}</a>
+		{% endif %}
+</footer> 
