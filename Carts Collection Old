@@ -1,0 +1,213 @@
+<!--
+templateType: page
+isAvailableForNewContent: true
+label: Carts Collection 
+screenshotPath: ../../images/template-previews/career-01.jpeg
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<main class="body-container-wrapper">
+
+  {% dnd_area "dnd_area" class='body-container', label='Main section' %}
+
+  {% dnd_section 
+		  padding={
+				'top': 0,
+				'bottom': 0,
+				'left': 0,
+				'right': 0
+			},
+			full_width=true
+		%}
+  {% dnd_module 'sp_banner' 
+				path='../../modules/Hero Banner',
+				label="Hero Banner",
+				width=12,
+				variant='var_02'
+			%}
+  {% module_attribute 'settings' is_json=True %}
+  {
+  'background_setting':{
+  "parallax": false,
+  "overlay": true,
+  "overlay_color": {
+  "color":"#000000",
+  "opacity": 60
+  }
+  }
+  }
+  {% end_module_attribute %}
+  {% module_attribute 'content_02' is_json=True %}
+  {
+  "heading": "Profile"
+  }
+  {% end_module_attribute %}
+  {% end_dnd_module %}
+  {% end_dnd_section %}
+
+
+  {% dnd_section vertical_alignment='TOP' %}
+  {% dnd_module 'content_01' path='../../modules/Content', width=6 %}{% end_dnd_module %}
+  {% dnd_module 'content_01' path='../../modules/Content', width=6, offset=6 %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section vertical_alignment='TOP', max_width='1000', background_color={
+				r: 250,
+				b: 250,
+				g: 250,
+				a: 1
+			} %}
+  {% dnd_module 'career_01' path='../../modules/Career', width=12 %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section vertical_alignment='MIDDLE',
+	background_image={
+        'backgroundPosition': 'MIDDLE_CENTER',
+        'backgroundSize': 'cover',
+        'imageUrl': 'https://cdn2.hubspot.net/hubfs/2333817/GiantFocal_Marketplace/Atomic/images/atomic-img-02.jpg'
+      }
+			%}
+
+  {% dnd_column %}
+
+  {% dnd_row %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4 %}{% end_dnd_module %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4, offset=4 %}{% end_dnd_module %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4, offset=8 %}{% end_dnd_module %}
+  {% end_dnd_row %}
+
+  {% dnd_row %}
+  {% dnd_module 'overlay_01' path='../../modules/Section Settings', width=12, overlay='true' %}{% end_dnd_module %}
+  {% end_dnd_row %} 
+
+  {% end_dnd_column %}
+
+  {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+  <div class="product-listing-container">
+    <h1>
+      Carts
+    </h1>
+    <div class="products-listing-wrapper">
+      {% if dynamic_page_hubdb_row %}        
+      <div id="product" class="product-card">
+        <h1>
+          {{dynamic_page_hubdb_row.name}}
+        </h1>
+        <img src="{{dynamic_page_hubdb_row.image_1.url}}" />
+      </div>
+      {% elif dynamic_page_hubdb_table_id %}
+      {% set queryparam = "" %}
+      {% set queryparam = queryparam ~ "type=5" %}
+      {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %}  
+      <article class="products-container">
+        <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+          <h2 class="p__title">
+            {{row.name}} 
+          </h2>
+          <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+        </a>
+      </article>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+</main>
+<style>
+  .product-listing-container {
+    width: 80vw;
+    margin: 0 auto;
+    padding-top: 5%;
+  }
+  
+    .product-listing-container h1{
+    padding-bottom: 5%;
+  } 
+
+  .products-listing-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  article {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5%;
+    transition: all .25s ease-out;
+    width: 340px;
+  }
+
+  article:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #fff;
+  }
+
+  .opt-btn, .opt-choice {
+    margin: 0 auto;
+  }
+
+  .tabPanel{
+    height: 85%;
+    color: #fff;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 22px;
+    display: none;
+    grid-template-columns: auto auto auto;
+    margin: 0 auto;
+  }
+
+  /* video fits in card */
+  p.desc iframe {
+    width: 350px !important;
+  }
+
+  /* tabs fit better */
+  .tabsApp .tab:first-child {
+    height: 34px !important;
+  }
+
+  .opt-btn, .opt-choice {
+    padding: 5% 0;
+  }
+
+  .opt-btn p {
+    padding-top: 5%;
+  }
+
+  #underLine {
+    text-decoration: underline;
+  }
+
+  .tab.none.active {
+    height: 34px !important;
+  }
+
+  .p__title {
+    font-size: 1.5rem;
+  }
+
+  article a {
+    color: #333;
+  }
+
+  article a:hover {
+    color: #333;
+  }
+  /* product card */
+
+  .product-card img {
+    width: 400px;
+  }
+
+  img.p__img {
+    object-fit: contain;
+  }
+    </style>
+    {% endblock body %}
+    
