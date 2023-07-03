@@ -6,6 +6,7 @@ screenshotPath: ../../images/template-previews/career-01.jpeg
 -->
 
 {% extends "../layouts/base.html" %}
+{{ require_css(get_asset_url("../../css/products.css")) }}
 
 {% block body %}
 <main class="body-container-wrapper">
@@ -91,127 +92,363 @@ screenshotPath: ../../images/template-previews/career-01.jpeg
   <div class="product-listing-container">
     <div class="products-listing-wrapper">
       {% if dynamic_page_hubdb_row %}        
-      <div id="product" class="product-card">
-        <h1>
-          {{dynamic_page_hubdb_row.name}}
-        </h1>
-        <img src="{{dynamic_page_hubdb_row.image_1.url}}" />
-        <div class="p-content__wrapper">
-          {{ dynamic_page_hubdb_row.three_d }}
+      <div class="product-card">
+        <div class="product-t-l__wrapper">
+          <div class="product-title">
+            <h1>
+              {{dynamic_page_hubdb_row.name}}
+            </h1>  
+          </div>
+          <div class="contact-link">
+            <a href="/pages/contact-us" rel="nofollow" class="c-a__cta">
+              Contact Us For A Quote
+            </a>
+          </div>
         </div>
+        <div class="product-content">
+          <div class="p-img">
+            <a href="{{dynamic_page_hubdb_row.image_1.url}}" target="_blank">
+              <img src="{{dynamic_page_hubdb_row.image_1.url}}" class="p-main__img" />
+            </a>
+            <div class="thumbnail-image">
+              {% if dynamic_page_hubdb_row.image_2.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_2.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_2.url }}" />   
+              </a>
+              {% else %}
+              <div class="test"  style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_3.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_3.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_3.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_4.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_4.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_4.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_5.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_5.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_5.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_6.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_6.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_6.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_7.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_7.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_7.url }}" />              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fff;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_8.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_8.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_8.url }}" />
+              </a>
+              {% else %}
+              <div>
+              </div>
+              {% endif %}
+            </div>
+{#            <div class="p__desc">
+              <p style="padding-bottom: 1%;">
+                {{ dynamic_page_hubdb_row.description }} 
+              </p>
+            </div>#}
+          </div>
+          <div class="p-three-d-link">
+            <div class="three-d-render">
+              {{ dynamic_page_hubdb_row.three_d }}
+            </div>
+            {% if dynamic_page_hubdb_row.three_d_file %}
+            <div class="three-d-download">
+              <a href="{{ dynamic_page_hubdb_row.three_d_file }}" download>
+                Download
+              </a>
+              <div class="p__desc">
+                <p style="padding: 5%;">
+                  <b style="color:#222;">Description:</b>
+                  {{ dynamic_page_hubdb_row.description }} 
+                </p>
+              </div>
+            </div>
+            {% else %}
+            <div>
+              <div class="three-d-download">
+                <a href="/pages/contact-us" class="three-d-download-link">
+                  Click here to request a 3D model or files              
+                </a>
+                <div class="p__desc" style="text-align: left; padding: 5%;">
+                  <p style="padding-bottom: 1%;">
+                    <b style="color:#222;">Description:</b>
+                    {{ dynamic_page_hubdb_row.description }} 
+                  </p>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% if dynamic_page_hubdb_row.vertical_working_load_n %}
+        <div class="table-intro">
+          <h3>
+            Load Ratings:
+          </h3>
+        </div>
+        <!-- **************************************************** DIRECRT LOADING TABLE **************************************************** -->
+        <div class="product-testing-data">
+          <table>
+            <tr>
+              <th>
+                <h3>
+                  Direct Loading
+                </h3>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <b>Vertical Working Load (N)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.vertical_working_load_n }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Vertical Working Load (lbf)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.vertical_working_load_lbf }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Horizontal Working Load (N)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.horizontal_working_load_n }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Horizontal Working Load (lbf)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.horizontal_working_load_lbf }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Vert./Horiz. Alternate Working Load (N)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.verthoriz_alternate_load_n }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Vert./Horiz. Alternate Working Load (lbf)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.verthoriz_alternate_working_load_lbf }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Tension Working Load (N)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.tension_working_load_n }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Tension Working Load (lbf)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.tension_working_load_lbf }}          
+              </td>
+            </tr>
+          </table>
+                  <!-- **************************************************** TORSION TABLE **************************************************** -->
+          <table>
+            <tr>
+              <th>
+                <h3>
+                  Torsion
+                </h3>
+              </th>
+              <th>
+
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load (N·m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.torsion_orientation_1_working_load_n_m }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load (in·lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.torsion_orientation_1_working_load_in_lb }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load (N·m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.torsion_orientation_2_working_load_n_m }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load (in·lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.torsion_orientation_2_working_load_in_lb }}          
+              </td>
+            </tr>
+          </table>
+                    <!-- **************************************************** MOMENT TABLE **************************************************** -->
+          <table>
+            <tr>
+              <th>
+                <h3>
+                  Moment
+                </h3>
+              </th>
+              <th>
+
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load (N·m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.moment_x_closing_working_load_n_m }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load  (in·lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.moment_x_closing_working_load_in_lb }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load (N·m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.moment_x_opening_working_load_n_m }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load  (in·lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.moment_x_opening_working_load_in_lb }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load (N·m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.moment_y_orientation_1_working_load_n_m }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load  (in·lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.moment_y_orientation_1_working_load_in_lb }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load (N·m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.moment_y_orientation_2_working_load_n_m }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Working Load  (in·lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.moment_y_orientation_2_working_load_in_lb }}          
+              </td>
+            </tr>
+          </table>
+        </div>
+        {% else %}
+        <div>
+          
+        </div>
+        {% endif %}
       </div>
       {% elif dynamic_page_hubdb_table_id %}
       {% set queryparam = "" %}
-      {% set queryparam = queryparam ~ "type=2" %}
-      {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %} 
-      <div>
+      {% set queryparam = queryparam ~ "type=2 &orderBy=name" %}
+      <div style="width: 80%; padding-bottom: 3%;text-align: center;margin: 0 auto;">
         <h1 class="collection-header">
-          Components
+          Aluminum Extrusion Brackets and Components
         </h1>  
+        <p>
+          AngleLock’s brackets are designed, engineered, and manufactured to perform with the greatest strength, performance, and precision in the industry. Our patented aluminum extrusion fastening system creates mechanically locked joints, optimizing the strength of each connection. All components are packaged as preassembled kits, including all the hardware needed for use.
+        </p>
       </div>
-      <article class="products-container">
-        <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
-          <h2 class="p__title">
-            {{row.name}} 
-          </h2>
-          <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
-        </a>
-      </article>
-      {% endfor %}
-      {% endif %}
+      <div class="product-listing-cards">
+        {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %} 
+        <article class="products-container">
+          <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+            <h2 class="p__title">
+                {{row.name}} 
+              </h2>
+              <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+            </a>
+          </article>
+          {% endfor %}
+        </div>
+
+        {% endif %}
+      </div>
     </div>
-  </div>
 
-</main>
-<style>
-  .product-listing-container {
-    width: 80vw;
-    margin: 0 auto;
-    padding-top: 5%;
-  }
-  
-    .product-listing-container h1{
-    padding-bottom: 5%;
-  } 
+    </main>
+{% endblock body %}
 
-  .products-listing-wrapper {
-    display: grid;
-    grid-template-columns: auto auto auto;
-  }
 
-  article {
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 5%;
-    transition: all .25s ease-out;
-    width: 340px;
-  }
 
-  article:hover {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    background-color: #fff;
-  }
 
-  .opt-btn, .opt-choice {
-    margin: 0 auto;
-  }
 
-  .tabPanel{
-    height: 85%;
-    color: #fff;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    font-size: 22px;
-    display: none;
-    grid-template-columns: auto auto auto;
-    margin: 0 auto;
-  }
-
-  /* video fits in card */
-  p.desc iframe {
-    width: 350px !important;
-  }
-
-  /* tabs fit better */
-  .tabsApp .tab:first-child {
-    height: 34px !important;
-  }
-
-  .opt-btn, .opt-choice {
-    padding: 5% 0;
-  }
-
-  .opt-btn p {
-    padding-top: 5%;
-  }
-
-  #underLine {
-    text-decoration: underline;
-  }
-
-  .tab.none.active {
-    height: 34px !important;
-  }
-
-  .p__title {
-    font-size: 1.5rem;
-  }
-
-  article a {
-    color: #333;
-  }
-
-  article a:hover {
-    color: #333;
-  }
-  /* product card */
-
-  .product-card img {
-    width: 400px;
-  }
-
-  img.p__img {
-    object-fit: contain;
-  }
-    </style>
-    {% endblock body %}
